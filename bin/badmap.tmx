@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" width="15" height="23" tilewidth="32" tileheight="32">
+ <tileset firstgid="1" name="badtiles" tilewidth="32" tileheight="32">
+  <image source="badtiles.png" width="320" height="64"/>
+  <tile id="1">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="2">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+  <tile id="3">
+   <properties>
+    <property name="blocked" value="true"/>
+   </properties>
+  </tile>
+ </tileset>
+ <layer name="Floor" width="15" height="23">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NkYGBgHMWjeBSP4lFMEwwAMbJHXmQFAAA=
+  </data>
+ </layer>
+ <layer name="Fence" width="15" height="23">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC8WTUQoAIAhDo7z/metThulWQYJU6EtTa+1ObOlwaokdbV24C33xnMlLtnqv94lsVR5sbiqb9aFiq5x+sRbs2dpHcZS5OGENVoVFXzWurwmySs1u8tjFi1jmn+1Yto8YQ50bViYAUYY7ZAUAAA==
+  </data>
+ </layer>
+</map>
