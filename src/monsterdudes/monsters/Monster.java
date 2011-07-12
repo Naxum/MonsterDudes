@@ -24,6 +24,8 @@ public abstract class Monster
 	public Animation attackCriticalAnimation;
 	public Animation magicAnimation; 
 	
+	public static final float ANIMATION_TIME = 2;
+	
 	public Map<Direction, Image[]> walkAnimation = new HashMap<Direction, Image[]>();
 	
 	public int health;
