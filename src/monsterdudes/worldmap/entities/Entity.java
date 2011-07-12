@@ -19,6 +19,11 @@ public class Entity
 	public Direction direction = Direction.DOWN;
 	public float moveNewTile = 0;
 	
+	public Entity(String str) throws SlickException
+	{
+		image = new Image(str);
+	}
+	
 	public void init(WorldMap map, float x, float y)
 	{
 		this.map = map;
