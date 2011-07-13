@@ -35,6 +35,7 @@ public class TestState implements GameState
 	public void render(GameContainer c, StateBasedGame game, Graphics g) throws SlickException
 	{
 		g.translate(-map.cam.x, -map.cam.y);
+		g.scale(Game.SCALE, Game.SCALE);
 		map.render(0, 0);
 		map.render(c, game, g);
 		map.player.render(c, game, g);

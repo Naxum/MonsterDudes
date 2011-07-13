@@ -17,6 +17,7 @@ public class Game extends StateBasedGame
 	public static final int WIDTH = 800;
 	public static final int HEIGHT = 600;
 	public static final boolean DEBUG = true;
+	public static final float SCALE = 1;
 	
 	public static final int SPLASH_ID = 0;
 	public static final int TITLE_ID = 1;

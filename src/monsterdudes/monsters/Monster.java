@@ -7,6 +7,8 @@ import java.util.Map;
 
 import org.newdawn.slick.Animation;
 import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
+import org.newdawn.slick.SpriteSheet;
 
 import monsterdudes.abilities.Ability;
 import monsterdudes.buffs.Buff;
@@ -19,6 +21,8 @@ import monsterdudes.worldmap.entities.Entity.Direction;
  */
 public abstract class Monster
 {
+	public SpriteSheet sheet;
+	
 	public Image image;
 	public Animation attackAnimation;
 	public Animation attackCriticalAnimation;
@@ -26,7 +30,7 @@ public abstract class Monster
 	
 	public static final float ANIMATION_TIME = 2;
 	
-	public Map<Direction, Image[]> walkAnimation = new HashMap<Direction, Image[]>();
+	public Map<Direction, Animation> walkAnimation = new HashMap<Direction, Animation>();
 	
 	public int health;
 	public int maxHealth;
@@ -44,4 +48,23 @@ public abstract class Monster
 	public Strategy strategy;
 	//public Personality personality;
 	public Family family;
+	
+	public Monster()
+	{
+		try
+		{
+			init();
+		}
+		catch(SlickException e)
+		{
+			System.out.println("Error initializing monster " + getClass().getName());
+			System.exit(0);
+		}
+	}
+	
+	/**
+	 * Load all images here, this is called from the Monster's constructor, so use super() and all will be done for you.
+	 * @throws SlickException
+	 */
+	protected abstract void init() throws SlickException;
 }

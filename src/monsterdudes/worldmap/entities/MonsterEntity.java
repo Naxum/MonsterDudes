@@ -3,6 +3,7 @@ package monsterdudes.worldmap.entities;
 import monsterdudes.monsters.Monster;
 
 import org.newdawn.slick.GameContainer;
+import org.newdawn.slick.Graphics;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
@@ -23,6 +24,19 @@ public class MonsterEntity extends Entity
 	
 	public void update(GameContainer c, StateBasedGame game, int delta) throws SlickException
 	{
-		//update entity image
+		super.update(c, game, delta);
+		
+	}
+	
+	public void render(GameContainer c, StateBasedGame game, Graphics g) throws SlickException
+	{
+		if(moving)
+		{
+			monster.walkAnimation.get(direction).draw(x * 32, y * 32);
+		}
+		else
+		{
+			monster.walkAnimation.get(direction).getImage(0).draw(x * 32, y * 32);
+		}
 	}
 }

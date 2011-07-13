@@ -21,7 +21,7 @@ public class Entity
 	
 	public Entity(String str) throws SlickException
 	{
-		image = new Image(str);
+		image = new Image(str, false, Image.FILTER_NEAREST);
 	}
 	
 	public void init(WorldMap map, float x, float y)

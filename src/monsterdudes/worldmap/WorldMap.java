@@ -15,8 +15,6 @@ import org.newdawn.slick.tiled.TiledMap;
 
 public class WorldMap extends TiledMap
 {
-	//TODO: Entities
-	
 	public Player player = new Player();
 	public Camera cam;
 	
