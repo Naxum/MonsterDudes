@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import monsterdudes.Camera;
+import monsterdudes.monsters.Player;
 import monsterdudes.worldmap.entities.*;
 
 import org.newdawn.slick.GameContainer;
@@ -14,12 +15,12 @@ import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.tiled.TiledMap;
 
 public class WorldMap extends TiledMap
-{
-	public Player player = new Player();
-	public Camera cam;
+{	
+	public List<Point> blocked = new ArrayList<Point>();
+	public List<Entity> entities = new ArrayList<Entity>();
 	
-	List<Point> blocked = new ArrayList<Point>();
-	List<Entity> entities = new ArrayList<Entity>();
+	public PlayerEntity player = new PlayerEntity(this, new Player());
+	public Camera cam;
 	
 	public WorldMap(String file) throws SlickException
 	{
@@ -30,10 +31,21 @@ public class WorldMap extends TiledMap
 		init();
 	}
 	
-	public void addEntity(Entity e, float x, float y)
+	public Entity addEntity(Entity e, float x, float y)
 	{
+		if(e == null) System.out.println("What");
+		
+		System.out.println("1");
+		
 		e.init(this, x, y);
+		
+		System.out.println("2");
+		
 		entities.add(e);
+		
+		System.out.println("3");
+		
+		return e;
 	}
 	
 	public void update(GameContainer c, StateBasedGame game, int delta) throws SlickException

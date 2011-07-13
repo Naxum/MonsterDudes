@@ -14,10 +14,11 @@ public class Game extends StateBasedGame
 	 */
 	private static final long serialVersionUID = 6177004059241983440L;
 	
-	public static final int WIDTH = 800;
-	public static final int HEIGHT = 600;
+	public static int WIDTH = 800;
+	public static int HEIGHT = 600;
+	public static float SCALE = 1.0f;
+	public static final int TILE_SIZE = 32;
 	public static final boolean DEBUG = true;
-	public static final float SCALE = 1;
 	
 	public static final int SPLASH_ID = 0;
 	public static final int TITLE_ID = 1;
@@ -39,6 +40,7 @@ public class Game extends StateBasedGame
 	{
 		try
 		{
+			//ScalableGame sGame = new ScalableGame(new Game(), 800, 600, true);
 			AppGameContainer app = new AppGameContainer(new Game());
 			app.setDisplayMode(WIDTH, HEIGHT, false);
 			app.setTargetFrameRate(60);

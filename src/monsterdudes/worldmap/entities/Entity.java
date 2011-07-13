@@ -6,6 +6,7 @@ import org.newdawn.slick.Image;
 import org.newdawn.slick.SlickException;
 import org.newdawn.slick.state.StateBasedGame;
 
+import monsterdudes.Game;
 import monsterdudes.worldmap.WorldMap;
 
 public class Entity
@@ -19,10 +20,11 @@ public class Entity
 	public Direction direction = Direction.DOWN;
 	public float moveNewTile = 0;
 	
+	/*
 	public Entity(String str) throws SlickException
 	{
-		image = new Image(str, false, Image.FILTER_NEAREST);
-	}
+		image = new Image(str, false);
+	}*/
 	
 	public void init(WorldMap map, float x, float y)
 	{
@@ -48,22 +50,18 @@ public class Entity
 			if(direction == Direction.DOWN)
 			{
 				y += update;
-				map.cam.y += update * 32;
 			}
 			else if (direction == Direction.UP)
 			{
 				y -= update;
-				map.cam.y -= update * 32;
 			}
 			else if (direction == Direction.LEFT)
 			{
 				x -= update;
-				map.cam.x -= update * 32;
 			}
 			else if (direction == Direction.RIGHT)
 			{
 				x += update;
-				map.cam.x += update * 32;
 			}
 			
 			if(!moving)
@@ -76,7 +74,7 @@ public class Entity
 	
 	public void render(GameContainer c, StateBasedGame game, Graphics g) throws SlickException
 	{
-		image.draw(x * 32, y * 32);
+		image.draw(x * Game.TILE_SIZE, y * Game.TILE_SIZE);
 	}
 	
 	public void move(Direction d)

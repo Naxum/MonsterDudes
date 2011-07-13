@@ -29,21 +29,27 @@ public class TestState implements GameState
 	{
 		map = new WorldMap("res/badmap.tmx");
 		map.player.init(map, x, y);
-		map.cam = new Camera(x * 32 - (c.getWidth()/2), y * 32 - (c.getHeight()/2));
+		map.cam = new Camera(c, 0, 0);
+		map.cam.updateLocation(map.player.x, map.player.y);
 	}
 
 	public void render(GameContainer c, StateBasedGame game, Graphics g) throws SlickException
 	{
+		map.cam.updateLocation(map.player.x, map.player.y);
+		
 		g.translate(-map.cam.x, -map.cam.y);
+		
 		g.scale(Game.SCALE, Game.SCALE);
+		
 		map.render(0, 0);
 		map.render(c, game, g);
 		map.player.render(c, game, g);
 		
 		g.translate(map.cam.x, map.cam.y);
 		
-		g.setColor(Color.white);
 		g.drawString("X:" + map.player.x + ", Y:" + map.player.y, 80, 10);
+		
+		g.setColor(Color.white);
 	}
 
 	public void update(GameContainer c, StateBasedGame game, int delta) throws SlickException

@@ -67,4 +67,38 @@ public abstract class Monster
 	 * @throws SlickException
 	 */
 	protected abstract void init() throws SlickException;
+	
+	public Image[] getWalkSprites(Direction d)
+	{
+		int x = 0;
+		
+		if(d == Direction.RIGHT || d == Direction.LEFT)
+		{
+			x = 1;
+		}
+		else if (d == Direction.UP)
+		{
+			x = 2;
+		}
+		
+		Image[] images = {sheet.getSprite(x, 0), sheet.getSprite(x, 1), sheet.getSprite(x, 0), sheet.getSprite(x, 2)};
+		
+		if(d == Direction.LEFT)
+		{
+			for(int i = 0; i < images.length; i++)
+			{
+				images[i] = images[i].getFlippedCopy(true, false);
+			}
+		}
+		
+		return images;
+	}
+	
+	public void loadWalkingImages()
+	{
+		for(Direction d : Direction.values())
+		{
+			walkAnimation.put(d, new Animation(getWalkSprites(d), 200, false));
+		}
+	}
 }

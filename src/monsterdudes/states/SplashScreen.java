@@ -21,11 +21,12 @@ public class SplashScreen implements GameState
 	
 	public void init(GameContainer c, StateBasedGame game) throws SlickException
 	{
-		image = new Image("res/splash.png");
+		image = new Image("res/splash.png", false, Image.FILTER_NEAREST);
 	}
 	
 	public void render(GameContainer c, StateBasedGame game, Graphics g) throws SlickException
 	{
+		g.scale(Game.SCALE, Game.SCALE);
 		image.draw();
 	}
 

@@ -18,8 +18,10 @@ public class MonsterEntity extends Entity
 	
 	public MonsterEntity(Monster monster) throws SlickException
 	{
-		super("res/icon.png"); //PLACEHOLDER
+		//super("res/icon.png"); //PLACEHOLDER
 		this.monster = monster;
+		
+		System.out.println("Hey me too!");
 	}
 	
 	public void update(GameContainer c, StateBasedGame game, int delta) throws SlickException
@@ -28,10 +30,12 @@ public class MonsterEntity extends Entity
 		
 	}
 	
+	@Override
 	public void render(GameContainer c, StateBasedGame game, Graphics g) throws SlickException
 	{
 		if(moving)
 		{
+			monster.walkAnimation.get(direction).setAutoUpdate(true);
 			monster.walkAnimation.get(direction).draw(x * 32, y * 32);
 		}
 		else
